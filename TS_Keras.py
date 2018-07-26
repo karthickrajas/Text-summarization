@@ -48,34 +48,6 @@ input_texts = [] # sentence in original language
 target_texts = [] # sentence in target language
 target_texts_inputs = [] # sentence in target language offset by 1
 
-"""
-# load in the data
-# download the data at: http://www.manythings.org/anki/
-t = 0
-for line in open('../large_files/translation/spa.txt'):
-  # only keep a limited number of samples
-  t += 1
-  if t > NUM_SAMPLES:
-    break
-
-  # input and target are separated by tab
-  if '\t' not in line:
-    continue
-
-  # split up the input and translation
-  input_text, translation = line.rstrip().split('\t')
-
-  # make the target input and output
-  # recall we'll be using teacher forcing
-  target_text = translation + ' <eos>'
-  target_text_input = '<sos> ' + translation
-
-  input_texts.append(input_text)
-  target_texts.append(target_text)
-  target_texts_inputs.append(target_text_input)
-print("num samples:", len(input_texts))
-
-"""
 import pandas as pd
 
 data = pd.read_csv("Reviews.csv",nrows = NUM_SAMPLES)
